@@ -1,7 +1,7 @@
 # Magento GDPR Extend by Vuduc (Magentiz)
 > Magentiz_GdprExtend Extension, gdpr extend for magento 2.
 
-> Magento 2 extension for verify age.
+> Magento 2 extension for configure cookie options.
 
 > Build for https://www.elfbar.de/
 ![elfbar](https://raw.githubusercontent.com/vdvuong/gdpr-extend/master/docs/main.png)
