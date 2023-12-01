@@ -10,7 +10,7 @@
   * Magento Community Edition 2.x or Magento Enterprise Edition 2.x.
   * Exec function needs to be enabled in PHP settings.
   * [Magento 2 GDPR](https://github.com/mageplaza/magento-2-gdpr/) and [Magento 2 GDPR Pro](https://www.mageplaza.com/magento-2-gdpr-extension/)
-  or [Magento 2 GDPR](https://raw.githubusercontent.com/vdvuong/gdpr-extend/master/docs/module/Gdpr.zip) and [Magento 2 GDPR Pro](https://raw.githubusercontent.com/vdvuong/gdpr-extend/master/docs/module/GdprPro.zip)
+  * or [Magento 2 GDPR](https://raw.githubusercontent.com/vdvuong/gdpr-extend/master/docs/module/Gdpr.zip) and [Magento 2 GDPR Pro](https://raw.githubusercontent.com/vdvuong/gdpr-extend/master/docs/module/GdprPro.zip)
 
 ## Installing using archive
   * Download [ZIP Archive](https://github.com/vdvuong/gdpr-extend/archive/refs/heads/master.zip).
@@ -25,6 +25,8 @@ php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 php bin/magento setup:static-content:deploy
 ```
+
+**Don't forget to install Gdpr and GdprPro.**
 
 ## User guide
 
