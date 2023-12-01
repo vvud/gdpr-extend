@@ -1,0 +1,160 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    //
+    //  Cookie preferences popup
+    //  ---------------------------------------------
+    .modals-wrapper .modal-popup.cookie-preferences-modal {
+        .modal-inner-wrap {
+            background-color: @color-white;
+            color: #222529;
+            position: fixed;
+            top: 0;
+            left: -17.5rem;
+            margin: 0;
+            width: 17.5rem;
+            transform: translateX(0);
+            transition: opacity 0.3s linear, left 0.3s ease-out;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 10px;
+            max-height: 100%;
+            height: 100%;
+            .modal-header {
+                padding: 20px;
+                position: relative;
+                .action-close {
+                    top: 50%;
+                    transform: translateY(-50%) rotate(45deg);
+                    &::before {
+                        color: @color-black;
+                        content: '\e81a';
+                        cursor: pointer;
+                        display: inline-block;
+                        font-family: 'porto-icons';
+                    }
+                }
+            }
+
+            .modal-content {
+                padding: 0;
+                overflow: visible;
+                .cookie-consent-section {
+                    padding: 10px 0;
+                }
+                .cookie-consent-configuration {
+                    .configuration-header {
+                        font-size: 18px;
+                    }
+                    .configuration-main {
+                        background: transparent;
+                        .cookie-consent--group,
+                        .cookie-consent--cookie {
+                            font-weight: 500;
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            padding: 10px 0;
+                            &-state {
+                                cursor: pointer;
+                                padding-right: 5px;
+                                width: 24px;
+                                input {
+                                    cursor: pointer;
+                                    opacity: 1;
+                                }
+                            }
+                            &-main {
+                                cursor: pointer;
+                                width: 85%;
+                                margin-right: auto;
+                                .toggle-cookie-consent {
+                                    font-weight: 600;
+                                }
+                            }
+                            &-description {
+                                padding-left: 24px;
+                            }
+                            &-items {
+                                display: none;
+                                padding-top: 10px;
+                            }
+                            .extend-icon {
+                                &::after {
+                                    content: '\e81a';
+                                    cursor: pointer;
+                                    display: inline-block;
+                                    font-family: 'porto-icons';
+                                    font-weight: 100;
+                                    font-size: 18px;
+                                    vertical-align: top;
+                                }
+                            }
+                            &.active .extend-icon::after {
+                                content: '\e81c';
+                            }
+                        }
+                        .cookie-group-checkbox.not-full {
+                            position: relative;
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                height: 2px;
+                                background-color: #222529;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -75%);
+                                width: 90%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .modal-footer {
+                margin: 0;
+                padding: 0 0 10px;
+                .consent-btn {
+                    line-height: normal;
+                    padding: 10px;
+                    width: 100%;
+                }
+            }
+        }
+        &._show .modal-inner-wrap {
+            left: 0;
+        }
+    }
+
+    .gdpr-notice-cookies {
+        .btn-cookie-config {
+            margin: 0 25px;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    //
+    //  Cookie buttons
+    //  ---------------------------------------------
+    .gdpr-notice-cookies {
+        .actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            button {
+                width: 75%;
+            }
+        }
+        .btn-cookie-config {
+            margin: 10px 25px;
+        }
+    }
+}

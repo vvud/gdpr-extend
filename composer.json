@@ -1,0 +1,37 @@
+{
+    "name": "magentiz/gdpr-extend",
+    "description": "Magentiz_GdprExtend Extension, GdprExtend for magento 2",
+    "require": {
+        "php": "~5.6.5 || >=7.0"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "authors": [
+        {
+          "name": "Open Techiz",
+          "email": "support@opentechiz.com",
+          "homepage": "https://www.opentechiz.com",
+          "role": "Technical Support"
+        }
+    ],
+    "minimum-stability": "dev",
+    "keywords": [
+      "magento 2",
+      "magento 2 gdpr-extend",
+      "magento agdpr-extend",
+      "gdpr-extend",
+      "magentiz",
+      "magentiz_gdprextend",
+      "opentechiz"
+    ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Magentiz\\GdprExtend\\": ""
+        }
+    }
+}

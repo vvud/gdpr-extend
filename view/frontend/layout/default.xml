@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Open Techiz. All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="Magentiz\GdprExtend\Block\Cookie" name="cookie_preferences_configure" ifconfig="gdpr/cookie/enable"
+                   template="Magentiz_GdprExtend::cookie/preferences.phtml">
+            </block>
+        </referenceContainer>
+    </body>
+</page>
