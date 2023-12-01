@@ -2,7 +2,8 @@
     "name": "magentiz/gdpr-extend",
     "description": "Magentiz_GdprExtend Extension, GdprExtend for magento 2",
     "require": {
-        "php": "~5.6.5 || >=7.0"
+        "php": "~5.6.5 || >=7.0",
+        "mageplaza/module-gdpr-pro" : "^4.2.0"
     },
     "type": "magento2-module",
     "version": "1.0.0",
