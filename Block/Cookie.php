@@ -6,14 +6,26 @@
 
 namespace Magentiz\GdprExtend\Block;
 
+use Magento\Store\Model\ScopeInterface;
+
 class Cookie extends \Magento\Framework\View\Element\Template
 {
+    
+    const COOKIE_OPTIONS_PATH = 'gdpr/cookie/enable_preferences';
+
+    /**
+     * Cookie constructor.
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context
     ) {
         parent::__construct($context);
     }
 
+    /**
+     * @return array
+     */
     public function getCookieGroups()
     {
         return array (
@@ -57,5 +69,13 @@ class Cookie extends \Magento\Framework\View\Element\Template
                 ]
             ]
         );
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnableCookiePreferences()
+    {
+        return (bool)$this->_scopeConfig->getValue(self::COOKIE_OPTIONS_PATH, ScopeInterface::SCOPE_STORE);
     }
 }

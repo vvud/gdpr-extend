@@ -14,6 +14,11 @@ use Magento\Cookie\Helper\Cookie as HelperCookie;
  */
 class Cookie extends \Mageplaza\GdprPro\Controller\Cookie\Cookie
 {
+    /**
+     * @param \Mageplaza\GdprPro\Controller\Cookie\Cookie $subject
+     * @param \Closure $proceed
+     * @return \Magento\Framework\Controller\Result\Json
+     */
     public function aroundExecute(\Mageplaza\GdprPro\Controller\Cookie\Cookie $subject, \Closure $proceed)
     {
         $result     = $this->_resultJsonFactory->create();

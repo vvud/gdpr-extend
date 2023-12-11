@@ -8,59 +8,61 @@
 
 $cookieGroups = $block->getCookieGroups();
 ?>
-<div id="modal-consent-content" style="display: none">
-    <div class="cookie-consent-description">
-        <span><?= __('This website uses cookies, which are necessary for the technical operation of the website and are always set. Other cookies that increase the comfort of using this website, serve direct advertising or simplify interaction with other websites and social networks will only be set with your consent.') ?></span>
-    </div>
-    <form class="cookie-consent-configuration cookie-consent-section">
-        <div class="configuration-header">
-            <strong><?= __('Configuration') ?></st>
+<?php if ($block->isEnableCookiePreferences()) : ?>
+    <div id="modal-consent-content" style="display: none">
+        <div class="cookie-consent-description">
+            <span><?= __('This website uses cookies, which are necessary for the technical operation of the website and are always set. Other cookies that increase the comfort of using this website, serve direct advertising or simplify interaction with other websites and social networks will only be set with your consent.') ?></span>
         </div>
-        <div class="configuration-main cookie-consent-section">
-            <?php foreach ($cookieGroups as $cookieGroup) : ?>
-            <?php $isEssential = $cookieGroup['is_essential'] ? 'checked disabled' : ''; ?>
-            <div class="cookie-consent--group cookie-consent--cookie">
-                <div class="cookie-consent--group-main">
-                    <label class="cookie-consent--group-state">
-                        <input type="checkbox" name="cookie_preferences[<?= $cookieGroup['name'] ?>][is_enabled]"
-                            class="cookie-consent--group-state-input cookie-checkbox cookie-group-checkbox <?= $cookieGroup['name'] ?>-cookie" 
-                            data-group="<?= $cookieGroup['name'] ?>-cookie" <?= $isEssential; ?>>
-                    </label>
-                    <span class="toggle-cookie-consent"><?= __($cookieGroup['label']) ?></span>
-                </div>
-                <span class="extend-icon toggle-cookie-consent"></span>
-                <div class="cookie-consent--group-items">
-                    <div class="cookie-consent--group-description">
-                        <span><?= __($cookieGroup['description']) ?></span>
-                    </div>
-                    <?php if (count($cookieGroup['items'])) : ?>
-                    <div class="cookie-consent--cookies-container">
-                        <?php foreach ($cookieGroup['items'] as $key => $item) : ?>
-                        <div class="cookie-consent--cookie">
-                            <label class="cookie-consent--cookie-state">
-                                <input type="checkbox" name="cookie_preferences[<?= $cookieGroup['name'] ?>][<?= $key ?>]"
-                                    class="cookie-consent--cookie-state-input cookie-checkbox cookie-item-checkbox <?= $cookieGroup['name'] ?>-cookie"
-                                    data-group="<?= $cookieGroup['name'] ?>-cookie" <?= $isEssential; ?>>
-                            </label>
-                            <div class="cookie-consent--cookie-title">
-                                <span><?= __($item) ?></span>
-                            </div>
-                        </div>
-                        <?php endforeach; ?>
-                    </div>
-                    <?php endif; ?>
-                </div>
+        <form class="cookie-consent-configuration cookie-consent-section">
+            <div class="configuration-header">
+                <strong><?= __('Configuration') ?></st>
             </div>
-            <?php endforeach; ?>
+            <div class="configuration-main cookie-consent-section">
+                <?php foreach ($cookieGroups as $cookieGroup) : ?>
+                <?php $isEssential = $cookieGroup['is_essential'] ? 'checked disabled' : ''; ?>
+                <div class="cookie-consent--group cookie-consent--cookie">
+                    <div class="cookie-consent--group-main">
+                        <label class="cookie-consent--group-state">
+                            <input type="checkbox" name="cookie_preferences[<?= $cookieGroup['name'] ?>][is_enabled]"
+                                class="cookie-consent--group-state-input cookie-checkbox cookie-group-checkbox <?= $cookieGroup['name'] ?>-cookie" 
+                                data-group="<?= $cookieGroup['name'] ?>-cookie" <?= $isEssential; ?>>
+                        </label>
+                        <span class="toggle-cookie-consent"><?= __($cookieGroup['label']) ?></span>
+                    </div>
+                    <span class="extend-icon toggle-cookie-consent"></span>
+                    <div class="cookie-consent--group-items">
+                        <div class="cookie-consent--group-description">
+                            <span><?= __($cookieGroup['description']) ?></span>
+                        </div>
+                        <?php if (count($cookieGroup['items'])) : ?>
+                        <div class="cookie-consent--cookies-container">
+                            <?php foreach ($cookieGroup['items'] as $key => $item) : ?>
+                            <div class="cookie-consent--cookie">
+                                <label class="cookie-consent--cookie-state">
+                                    <input type="checkbox" name="cookie_preferences[<?= $cookieGroup['name'] ?>][<?= $key ?>]"
+                                        class="cookie-consent--cookie-state-input cookie-checkbox cookie-item-checkbox <?= $cookieGroup['name'] ?>-cookie"
+                                        data-group="<?= $cookieGroup['name'] ?>-cookie" <?= $isEssential; ?>>
+                                </label>
+                                <div class="cookie-consent--cookie-title">
+                                    <span><?= __($item) ?></span>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
-</div>
-<script type="text/x-magento-init">
-{
-    "*": {
-        "Magentiz_GdprExtend/js/cookie/preferences": {
-            "cookieName": "<?= /* @noEscape */ \Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE ?>"
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Magentiz_GdprExtend/js/cookie/preferences": {
+                "cookieName": "<?= /* @noEscape */ \Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE ?>"
+            }
         }
     }
-}
-</script>
+    </script>
+<?php endif; ?>

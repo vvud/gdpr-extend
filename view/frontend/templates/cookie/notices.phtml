@@ -18,9 +18,11 @@ if ($gdprHelper->isEnableCookieRestrictrion()): ?>
         <div class="content">
             <?= /** @noEscape */ $gdprHelper->getCookieMessage() ?>
             <div class="actions">
+                <?php if ($block->isEnableCookiePreferences()) : ?>
                 <button id="gdpr-btn-cookie-config" class="action allow primary btn-cookie-config">
                     <span><?= /** @noEscape */ __('Configure') ?></span>
                 </button>
+                <?php endif; ?>
                 <button id="gdpr-btn-cookie-allow" class="action allow primary">
                     <span><?= /** @noEscape */ $gdprHelper->getCookieButtonText() ?></span>
                 </button>
